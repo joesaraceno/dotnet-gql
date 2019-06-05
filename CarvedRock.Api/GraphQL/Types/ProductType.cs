@@ -3,10 +3,12 @@ using GraphQL.Types;
 
 namespace CarvedRock.Api.GraphQL.Types
 {
+    // provides metatdata for the Entities
     public class ProductType: ObjectGraphType<Product>
     {
         public ProductType()
         {
+            // graphql can infer the type here
             Field(t => t.Id);
             Field(t => t.Name).Description("The name of the product");
             Field(t => t.Description);
