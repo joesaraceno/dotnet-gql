@@ -39,8 +39,8 @@ namespace CarvedRock.Api
 
         public void Configure(IApplicationBuilder app, CarvedRockDbContext dbContext)
         {
-            app.UseGraphQL<CarvedRockSchema>();
-            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
+            app.UseGraphQL<CarvedRockSchema>(); // defaults the endpoint to /graphql
+            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions() /* some default options */); // just the playground ui
             dbContext.Seed();
         }
     }
