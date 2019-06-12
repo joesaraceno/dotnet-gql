@@ -9,6 +9,7 @@ const Products = () => (
         products {
           id
           description
+          name
         }
       }
     `}
@@ -17,9 +18,9 @@ const Products = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
 
-      return data.products.map(({ id, description }) => (
+      return data.products.map(({ id, description, name }) => (
         <div key={id}>
-          <p>{id}: {description}</p>
+          <p>{name}: {description}</p>
         </div>
       ));
     }}
