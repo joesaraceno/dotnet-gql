@@ -3,7 +3,7 @@ using CarvedRock.Api.GraphQL;
 using CarvedRock.Api.Repositories;
 using GraphQL;
 using GraphQL.Server;
-using GraphQL.Server.Ui.Playground;
+using GraphiQl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +40,7 @@ namespace CarvedRock.Api
         public void Configure(IApplicationBuilder app, CarvedRockDbContext dbContext)
         {
             app.UseGraphQL<CarvedRockSchema>(); // defaults the endpoint to /graphql
-            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions() /* some default options */); // just the playground ui
+            app.UseGraphiQl("/graphiql", "/graphql");
             dbContext.Seed();
         }
     }
