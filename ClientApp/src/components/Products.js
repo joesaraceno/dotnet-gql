@@ -1,6 +1,7 @@
 import React from 'react';
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import Product from './Product';
 
 const Products = () => (
   <Query
@@ -18,10 +19,14 @@ const Products = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
 
-      return data.products.map(({ id, description, name }) => (
-        <div key={id}>
-          <p>{name}: {description}</p>
-        </div>
+      return data.products.map(({ 
+        id, description, name 
+      }) => (
+        <Product 
+          name={name}
+          description={description}
+          id={id}
+        />
       ));
     }}
   </Query>
