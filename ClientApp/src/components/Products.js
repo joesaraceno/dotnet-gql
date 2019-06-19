@@ -23,9 +23,9 @@ const Products = () => (
         id, description, name 
       }) => (
         <Product 
+          key={id}
           name={name}
           description={description}
-          id={id}
         />
       ));
     }}

@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class Product extends Component {
-  constructor (props) {
-    super (props);
-
-    this.state = {
-      isSelected: false,
-    };
-  }
-
-  toggleSelected = () => {
-    this.setState(state => ({ isSelected: !state.isSelected }))
+const Product = props => {
+  const [ selected, setSelected ] = useState(false);
+  const [ count, setCount ] = useState(0);
+  
+  const toggleSelected = () => {
+    console.log(selected);
+    setSelected(!selected);
   };
 
-  render() {
-    return (
-      <div key={this.props.id}>
-        <p>
-          {this.props.name}: {this.props.description}
-        </p>
-      </div>
-    )
-  }
-}
+  const increment = () => {
+    console.log(count);
+    setCount(count + 1);
+  };
+
+  return (
+    <div className={selected ? "selected" : ""} onClick={ toggleSelected }>
+      <button onClick={ increment }>+ {count}</button>
+      <p>
+        {props.name}: {props.description}
+      </p>
+    </div>
+  );
+};
 
 export default Product;
