@@ -1,20 +1,10 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
 
 import Product from './Product';
+import { PRODUCTS_QUERY } from '../queries/ProductsQuery';
 
-const PRODUCTS_QUERY = gql`
-  {
-    products {
-      id
-      description
-      name
-    }
-  }
-`;
-
-const Products = () => {
+export default function Products () {
   const { data, error, loading } = useQuery(PRODUCTS_QUERY);
 
   if(loading) {
@@ -36,37 +26,4 @@ const Products = () => {
       ))}
     </ul>
   )
-} 
-
-export default Products;
-
-// const Products = () => (
-//   <Query
-//     query={gql`
-//       {
-//         products {
-//           id
-//           description
-//           name
-//         }
-//       }
-//     `}
-//   >
-//     {({ loading, error, data }) => {
-//       if (loading) return <p>Loading...</p>;
-//       if (error) return <p>Error :(</p>;
-
-//       return data.products.map(({ 
-//         id, description, name 
-//       }) => (
-//         <Product 
-//           key={id}
-//           name={name}
-//           description={description}
-//         />
-//       ));
-//     }}
-//   </Query>
-// );
-
-// export default Products;
+};
