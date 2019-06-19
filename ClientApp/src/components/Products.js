@@ -1,35 +1,75 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Query } from "react-apollo";
-import { gql } from "apollo-boost";
+// import { gql } from "apollo-boost";
 import Product from './Product';
 
-const Products = () => (
-  <Query
-    query={gql`
-      {
-        products {
-          id
-          description
-          name
-        }
-      }
-    `}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
+import gql from 'graphql-tag';
+import { useQuery } from 'react-apollo-hooks';
 
-      return data.products.map(({ 
-        id, description, name 
-      }) => (
+const PRODUCTS_QUERY = gql`
+  {
+    products {
+      id
+      description
+      name
+    }
+  }
+`;
+
+
+const Products = () => {
+  const { data, error, loading } = useQuery(PRODUCTS_QUERY);
+
+  if(loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error...{error.message}</div>
+  }
+
+  return (
+    <ul>
+      { data.products.map(product => (
         <Product 
-          key={id}
-          name={name}
-          description={description}
+          key={product.id}
+          name={product.name} 
+          description={product.description}
         />
-      ));
-    }}
-  </Query>
-);
+      ))}
+    </ul>
+  )
+} 
 
 export default Products;
+
+// const Products = () => (
+//   <Query
+//     query={gql`
+//       {
+//         products {
+//           id
+//           description
+//           name
+//         }
+//       }
+//     `}
+//   >
+//     {({ loading, error, data }) => {
+//       if (loading) return <p>Loading...</p>;
+//       if (error) return <p>Error :(</p>;
+
+//       return data.products.map(({ 
+//         id, description, name 
+//       }) => (
+//         <Product 
+//           key={id}
+//           name={name}
+//           description={description}
+//         />
+//       ));
+//     }}
+//   </Query>
+// );
+
+// export default Products;
