@@ -1,27 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const Product = props => {
+import styled from 'styled-components';
+
+export default function Product (props) {
   const [ selected, setSelected ] = useState(false);
   const [ count, setCount ] = useState(0);
   
   const toggleSelected = () => {
-    console.log(selected);
     setSelected(!selected);
   };
 
   const increment = () => {
-    console.log(count);
     setCount(count + 1);
   };
 
+  const BoxDiv = styled.div`
+    padding: ${selected ? "0" : "4px"}
+    background-color: ${selected ? "blue" : ""}
+    border: ${selected ? "4px solid grey" : ""}
+    border-radius: ${selected ? "4px" : ""}
+  `;
+
   return (
-    <div className={selected ? "selected" : ""} onClick={ toggleSelected }>
+    <BoxDiv onClick={ toggleSelected }>
       <button onClick={ increment }>+ {count}</button>
       <p>
         {props.name}: {props.description}
       </p>
-    </div>
+    </BoxDiv>
   );
-};
 
-export default Product;
+};
