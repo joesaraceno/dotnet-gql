@@ -1,10 +1,8 @@
-import React, { useLayoutEffect } from 'react';
-import { Query } from "react-apollo";
-// import { gql } from "apollo-boost";
-import Product from './Product';
-
+import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
+
+import Product from './Product';
 
 const PRODUCTS_QUERY = gql`
   {
@@ -15,7 +13,6 @@ const PRODUCTS_QUERY = gql`
     }
   }
 `;
-
 
 const Products = () => {
   const { data, error, loading } = useQuery(PRODUCTS_QUERY);
