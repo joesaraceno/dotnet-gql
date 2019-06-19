@@ -4,7 +4,7 @@ GraphQL plus Apollo Hooks makes querying a total breeze.
 
 Styled components make writing inline css more declarative, and conditional styling of the components is much easier and readable.
 
-The backend is meant to feel familiar for my organization, with tools like Dotnet and Entity making up the basis of the data layer, but with the added benefit of GraphQL resolvers for front end fun.
+The backend is meant to feel familiar for my organization, with tools like Dotnet and Entity and MSSQL making up the basis of the data layer, but with the added benefit of GraphQL resolvers for front end ease.
 
 ## Technologies Used
 

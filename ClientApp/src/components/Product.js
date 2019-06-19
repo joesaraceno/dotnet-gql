@@ -17,9 +17,9 @@ export default function Product (props) {
   const ProductItem = styled.li`
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: ${selected ? "0" : "4px"};
+    padding: ${selected ? "0" : "2px"};
     background-color: ${selected ? "blue" : ""};
-    border: ${selected ? "4px solid grey" : ""};
+    border: ${selected ? "2px solid grey" : ""};
     border-radius: ${selected ? "4px" : ""};
   `;
 

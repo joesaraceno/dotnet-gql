@@ -5,21 +5,22 @@ import styled from 'styled-components';
 import Product from './Product';
 import { PRODUCTS_QUERY } from '../queries/ProductsQuery';
 
-const Ul = styled.ul`
-  padding: 0;
-  margin: 0;
-`;
 
 export default function Products () {
   const { data, error, loading } = useQuery(PRODUCTS_QUERY);
-
+  
   if(loading) {
     return <div>Loading...</div>
   }
-
+  
   if (error) {
     return <div>Error...{error.message}</div>
   }
+  
+  const Ul = styled.ul`
+    padding: 0;
+    margin: 0;
+  `;
 
   return (
     <Ul>
