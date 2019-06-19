@@ -8,10 +8,10 @@ The backend is meant to feel familiar for my organization, with tools like Dotne
 
 ## Technologies Used
 
-Dotnet Core 2.2
-Entity Framework
-MSSQL
-ReactJS
-GraphQL
-Apollo
-StyledComponents
+* Dotnet Core 2.2
+* Entity Framework
+* MSSQL
+* ReactJS
+* GraphQL
+* Apollo
+* StyledComponents
