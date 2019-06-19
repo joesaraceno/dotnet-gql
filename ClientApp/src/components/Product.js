@@ -16,11 +16,11 @@ export default function Product (props) {
 
   const ProductItem = styled.li`
     margin-top: 5px;
-    marrgin-bottom: 5px;
-    padding: ${selected ? "0" : "4px"}
-    background-color: ${selected ? "blue" : ""}
-    border: ${selected ? "4px solid grey" : ""}
-    border-radius: ${selected ? "4px" : ""}
+    margin-bottom: 5px;
+    padding: ${selected ? "0" : "4px"};
+    background-color: ${selected ? "blue" : ""};
+    border: ${selected ? "4px solid grey" : ""};
+    border-radius: ${selected ? "4px" : ""};
   `;
 
   return (
