@@ -14,7 +14,9 @@ export default function Product (props) {
     setCount(count + 1);
   };
 
-  const BoxDiv = styled.div`
+  const ProductItem = styled.li`
+    margin-top: 5px;
+    marrgin-bottom: 5px;
     padding: ${selected ? "0" : "4px"}
     background-color: ${selected ? "blue" : ""}
     border: ${selected ? "4px solid grey" : ""}
@@ -22,12 +24,12 @@ export default function Product (props) {
   `;
 
   return (
-    <BoxDiv onClick={ toggleSelected }>
+    <ProductItem onClick={ toggleSelected }>
       <button onClick={ increment }>+ {count}</button>
       <p>
         {props.name}: {props.description}
       </p>
-    </BoxDiv>
+    </ProductItem>
   );
 
 };

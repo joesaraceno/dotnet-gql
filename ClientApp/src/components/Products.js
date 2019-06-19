@@ -1,8 +1,14 @@
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
+import styled from 'styled-components';
 
 import Product from './Product';
 import { PRODUCTS_QUERY } from '../queries/ProductsQuery';
+
+const Ul = styled.ul`
+  padding: 0;
+  margin: 0;
+`;
 
 export default function Products () {
   const { data, error, loading } = useQuery(PRODUCTS_QUERY);
@@ -16,7 +22,7 @@ export default function Products () {
   }
 
   return (
-    <ul>
+    <Ul>
       { data.products.map(product => (
         <Product 
           key={product.id}
@@ -24,6 +30,6 @@ export default function Products () {
           description={product.description}
         />
       ))}
-    </ul>
+    </Ul>
   )
 };
