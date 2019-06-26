@@ -21,7 +21,13 @@ export default function Product (props) {
     background-color: ${selected ? "blue" : ""};
     border: ${selected ? "2px solid grey" : ""};
     border-radius: ${selected ? "4px" : ""};
-  `;
+    box-shadow: 1px 1px 1px 1px #dddfff;
+    cursor: pointer;
+    
+    &:hover {
+      color: red;
+    }
+    `;
 
   return (
     <ProductItem onClick={ toggleSelected }>

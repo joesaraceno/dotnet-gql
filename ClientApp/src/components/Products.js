@@ -18,12 +18,13 @@ export default function Products () {
   }
   
   const Ul = styled.ul`
-    padding: 0;
+    padding: 1em;
     margin: 0;
+    list-style-type: none;
   `;
 
   return (
-    <Ul>
+    <Ul className="products">
       { data.products.map(product => (
         <Product 
           key={product.id}
