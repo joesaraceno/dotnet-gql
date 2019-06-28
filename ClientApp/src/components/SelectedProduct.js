@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
-export default function LeftNav (props) {
+export const SelectedProduct = () => {
 
-  const LeftNav = styled.div`
+  const SelectedProduct = styled.div`
     width: 100%;
     border-right: 4px solid black;
     padding: 10px;
   `;
 
   return (
-    <LeftNav className="left-nav">
+    <SelectedProduct className="selected-product-wrapper">
         <p>Selected Product:</p>
       {/* <SelectedProduct></SelectedProduct> */}
-    </LeftNav>
+    </SelectedProduct>
   );
 
 };

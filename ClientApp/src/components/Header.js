@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
-export default function Header (props) {
+export const Header = (props) => {
 
   const Header = styled.header`
     width: 100%;

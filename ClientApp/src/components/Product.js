@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
-export default function Product (props) {
+export const Product = (props) => {
   const [ selected, setSelected ] = useState(false);
   const [ count, setCount ] = useState(0);
   
@@ -13,6 +13,10 @@ export default function Product (props) {
   const increment = () => {
     setCount(count + 1);
   };
+
+  useEffect(() => {
+    console.log('use effect runs');
+  })
 
   const ProductItem = styled.li`
     margin-top: 5px;

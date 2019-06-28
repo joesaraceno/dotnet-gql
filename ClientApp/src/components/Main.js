@@ -2,11 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Products from './Products';
-import LeftNav from './LeftNav';
+import { Products } from './Products';
+import { SelectedProduct } from './SelectedProduct';
 
 
-export default function Main () {
+export const Main = () => {
   const Main = styled.div`
     display: flex;
     flex-direction: row;
@@ -14,7 +14,7 @@ export default function Main () {
 
   return (
       <Main className="main">
-          <LeftNav/>
+          <SelectedProduct />
           <Products />
       </Main>
   )
