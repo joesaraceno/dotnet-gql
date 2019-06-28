@@ -19,7 +19,7 @@ export const Header = (props) => {
     width: 20%;
     background-repeat: no-repeat;
     margin: 0;
-  `
+  `;
 
   return (
     <Header className="header">
