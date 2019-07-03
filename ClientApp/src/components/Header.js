@@ -22,7 +22,7 @@ export const Header = (props) => {
   `;
 
   return (
-    <Header className="header">
+    <Header>
       <Logo />
       {/* <NavItems>
       </NavItems>       */}

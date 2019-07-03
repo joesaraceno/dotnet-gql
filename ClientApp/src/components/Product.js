@@ -14,40 +14,36 @@ export const Product = (props) => {
     setCount(count + 1);
   };
 
-
+// debugger;
 
   // find out why this is firing a re-fetch of the logo
 
   useEffect(() => {
     console.log('use effect runs');
-  })
+  }, [])
 
-  // const ProductItem = styled.li`
-  //   margin-top: 5px;
-  //   margin-bottom: 5px;
-  //   padding: ${selected ? "0" : "2px"};
-  //   background-color: ${selected ? "blue" : ""};
-  //   border: ${selected ? "2px solid grey" : ""};
-  //   border-radius: ${selected ? "4px" : ""};
-  //   box-shadow: 1px 1px 1px 1px #dddfff;
-  //   cursor: pointer;
+  const ProductItem = styled.li`
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: ${selected ? "0" : "2px"};
+    background-color: ${selected ? "blue" : ""};
+    border: ${selected ? "2px solid grey" : ""};
+    border-radius: ${selected ? "4px" : ""};
+    box-shadow: 1px 1px 1px 1px #dddfff;
+    cursor: pointer;
     
-  //   &:hover {
-  //     color: red;
-  //   }
-  // `;
+    &:hover {
+      color: red;
+    }
+  `;
 
   return (
-    <div onClick={increment}>
-      
-      <p onClick={ toggleSelected } /*onClick={increment} */>Selected: {selected} count: {count}{props.name} - {props.description} </p>
-    </div>
-    // <ProductItem onClick={ toggleSelected }>
-    //   <button onClick={increment } >+ {count}</button>
-    //   <p>
-    //     {props.name}: {props.description}
-    //   </p>
-    // </ProductItem>
+    <ProductItem onClick={ toggleSelected }>
+      <button onClick={increment } >+ {count}</button>
+      <p>
+        {props.name}: {props.description}
+      </p>
+    </ProductItem>
   );
 
   // return (
