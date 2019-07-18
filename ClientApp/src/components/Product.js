@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const Product = (props) => {
   const [ selected, setSelected ] = useState(false);
   const [ count, setCount ] = useState(0);
-  // 
+  
   const toggleSelected = () => {
     setSelected(!selected);
   };
@@ -13,14 +13,6 @@ export const Product = (props) => {
   const increment = () => {
     setCount(count + 1);
   };
-
-// debugger;
-
-  // find out why this is firing a re-fetch of the logo
-
-  useEffect(() => {
-    console.log('use effect runs');
-  }, [])
 
   const ProductItem = styled.li`
     margin-top: 5px;
@@ -45,14 +37,5 @@ export const Product = (props) => {
       </p>
     </ProductItem>
   );
-
-  // return (
-  //   <ProductItem /*onClick={ toggleSelected }*/>
-  //     <button /*onClick={increment } */ >+ {count}</button>
-  //     <p>
-  //       {props.name}: {props.description}
-  //     </p>
-  //   </ProductItem>
-  // );
 
 };
