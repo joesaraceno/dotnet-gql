@@ -8,15 +8,15 @@ networks:
 
 services:
   client:
-    build: "./ClientApp"
-    # image: honestcomrade/dotnet-gql_client
+    # build: "./ClientApp"
+    image: honestcomrade/dotnet-gql_client
     ports: 
       - "3001:3000"
     networks:
       - carvedrock_net
   api:
-    build: "./CarvedRock.Api"
-    # image: honestcomrade/dotnet-gql_api
+    # build: "./CarvedRock.Api"
+    image: honestcomrade/dotnet-gql_api
     ports: 
       - "5050:5050"
     networks:
