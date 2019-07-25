@@ -1,0 +1,21 @@
+
+# This is the docker version, not your project version
+version: "3.7"
+
+networks:
+  carvedrock_net:
+    driver: bridge
+
+services:
+  client:
+    build: "./ClientApp"
+    ports: 
+      - "3001:3000"
+    networks:
+      - carvedrock_net
+  api:
+    build: "./CarvedRock.Api"
+    ports: 
+      - "5050:5050"
+    networks:
+      - carvedrock_net
