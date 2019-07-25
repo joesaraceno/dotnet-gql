@@ -25,7 +25,6 @@ namespace CarvedRock.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options => options.AddPolicy("gqlPolicy", builder => builder.WithOrigins("http://localhost:3000", "http://10.1.41.53.3000").AllowAnyMethod().AllowAnyHeader()));
             services.AddMvc();
             services.AddDbContext<CarvedRockDbContext>(options =>
                 options.UseSqlServer(_config["ConnectionStrings:CarvedRock"]));
@@ -40,7 +39,7 @@ namespace CarvedRock.Api
 
         public void Configure(IApplicationBuilder app, CarvedRockDbContext dbContext)
         {
-            app.UseCors(options => options.WithOrigins("http://localhost:3000", "http://10.1.31.53:3000")
+            app.UseCors(options => options.WithOrigins("http://localhost:3000")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowAnyOrigin()
