@@ -3,6 +3,7 @@ FROM node:slim
 
 # set some environment variables that the app boot will want
 ENV APP_HOME /app
+ENV PORT=4000
 
 # make a new directory in the container and cd into it
 RUN mkdir $APP_HOME

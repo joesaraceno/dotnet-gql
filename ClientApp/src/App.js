@@ -7,16 +7,16 @@ import ApolloClient from 'apollo-boost';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 const client = new ApolloClient({
-    uri: "http://localhost:5050/graphql"
-  });
+  uri: "http://localhost:5050/graphql"
+});
 
 export const App = () => {
-    return (
-        <ApolloProvider client={client}>
-            <ApolloHooksProvider client={client}>
-                <Header />
-                <Main />
-            </ApolloHooksProvider>
-        </ApolloProvider>
-    )
+  return (
+    <ApolloProvider client={client}>
+      <ApolloHooksProvider client={client}>
+        <Header />
+        <Main />
+      </ApolloHooksProvider>
+    </ApolloProvider>
+  )
 }

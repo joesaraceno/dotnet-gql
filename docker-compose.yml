@@ -11,7 +11,7 @@ services:
     # build: "./ClientApp"
     image: honestcomrade/dotnet-gql_client
     ports: 
-      - "3001:3000"
+      - "3001:4000"
     networks:
       - carvedrock_net
   api:
