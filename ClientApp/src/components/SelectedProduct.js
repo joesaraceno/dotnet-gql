@@ -2,19 +2,23 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
+import { ProductDetails } from './ProductDetails';
+
 export const SelectedProduct = () => {
 
-  const SelectedProduct = styled.div`
+  const [ selectedItem, setSelectedItem ] = useState()
+
+  const SelectedProductWrapper = styled.div`
     width: 100%;
     border-right: 4px solid black;
     padding: 10px;
   `;
 
   return (
-    <SelectedProduct className="selected-product-wrapper">
+    <SelectedProductWrapper className="selected-product-wrapper">
         <p>Selected Product:</p>
-      {/* <SelectedProduct></SelectedProduct> */}
-    </SelectedProduct>
+        <ProductDetails></ProductDetails>
+    </SelectedProductWrapper>
   );
 
 };

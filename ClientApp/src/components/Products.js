@@ -28,6 +28,7 @@ export const Products = () => {
       { data.products.map(product => (
         <Product 
           key={product.id}
+          id={product.id}
           name={product.name} 
           description={product.description}
         />
