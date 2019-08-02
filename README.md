@@ -45,7 +45,7 @@ The backend is meant to feel familiar for my organization, with tools like Dotne
 
 ~~* Push the dockerized images up to a docker repository~~
 
-* Build out some ui elements to show data and state passing around the application
+~~* Build out some ui elements to show data and state passing around the application~~
 
 * Make more backend models, to show the different GraphQL types and how to query them
 
