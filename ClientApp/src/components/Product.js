@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
 import { useGlobalState } from '../state/state';
 
 export const Product = (props) => {
   const [ selectedItem, setSelectedItem ] = useGlobalState('selectedItem');
   const selected = selectedItem == props.id;
-
 
   const ProductItem = styled.li`
     margin-top: 5px;
@@ -28,5 +28,4 @@ export const Product = (props) => {
       </p>
     </ProductItem>
   );
-
 };

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { useGlobalState } from '../state/state';
 import { ProductDetails } from './ProductDetails';
 
-
 export const SelectedProduct = () => {
   const [ selectedItem ] = useGlobalState('selectedItem');
 
