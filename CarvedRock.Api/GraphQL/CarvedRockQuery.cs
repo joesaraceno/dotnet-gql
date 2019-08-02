@@ -14,6 +14,15 @@ namespace CarvedRock.Api.GraphQL
                 resolve: context => productRepository.GetAll() // define the behavior of this resolver
                 // returns a task that we don't have to await (graphql handles the await)
             );
+            Field<ProductType>(
+                "product",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>>
+                    {Name = "id"}),
+                resolve: context => {
+                    var id = context.GetArgument<int>("id");
+                    return productRepository.GetSingle(id);
+                }
+            );
         }
     }
 }

@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import styled from 'styled-components';
 
-export const SelectedProduct = () => {
+import { useGlobalState } from '../state/state';
+import { ProductDetails } from './ProductDetails';
 
-  const SelectedProduct = styled.div`
+export const SelectedProduct = () => {
+  const [ selectedItem ] = useGlobalState('selectedItem');
+
+  const SelectedProductWrapper = styled.div`
     width: 100%;
     border-right: 4px solid black;
     padding: 10px;
   `;
 
   return (
-    <SelectedProduct className="selected-product-wrapper">
+    <SelectedProductWrapper className="selected-product-wrapper">
         <p>Selected Product:</p>
-      {/* <SelectedProduct></SelectedProduct> */}
-    </SelectedProduct>
+        <ProductDetails id={selectedItem}></ProductDetails>
+    </SelectedProductWrapper>
   );
 
 };

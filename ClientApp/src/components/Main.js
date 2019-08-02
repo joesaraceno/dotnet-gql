@@ -1,10 +1,8 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
 import { Products } from './Products';
 import { SelectedProduct } from './SelectedProduct';
-
 
 export const Main = () => {
   const Main = styled.div`
@@ -14,7 +12,7 @@ export const Main = () => {
 
   return (
       <Main className="main">
-          <SelectedProduct />
+          <SelectedProduct/>
           <Products />
       </Main>
   )

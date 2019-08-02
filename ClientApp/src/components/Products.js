@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { Product } from './Product';
 import { PRODUCTS_QUERY } from '../queries/ProductsQuery';
 
-
 export const Products = () => {
   const { data, error, loading } = useQuery(PRODUCTS_QUERY);
   
@@ -16,7 +15,6 @@ export const Products = () => {
   if (error) {
     return <div>Error...{error.message}</div>
   }
-  
   const ProductList = styled.ul`
     padding: 1em;
     margin: 0;
@@ -28,6 +26,7 @@ export const Products = () => {
       { data.products.map(product => (
         <Product 
           key={product.id}
+          id={product.id}
           name={product.name} 
           description={product.description}
         />
