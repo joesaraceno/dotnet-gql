@@ -5,7 +5,7 @@ import { useGlobalState } from '../state/state';
 
 export const Product = (props) => {
   const [ selectedItem, setSelectedItem ] = useGlobalState('selectedItem');
-  const selected = selectedItem == props.id;
+  const selected = selectedItem === props.id;
 
   const ProductItem = styled.li`
     margin-top: 5px;

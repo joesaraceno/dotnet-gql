@@ -44,35 +44,44 @@ export const ProductDetails = (props) => {
     box-shadow: 1px 1px 1px 1px #dddfff;
   `;
 
+  const DetailsList = styled.ul`
+    list-style-type: none;
+    li {
+      padding: 10px;
+    }
+  `
+
   return (
     <ProductDetails>
-      <ul>
+      <DetailsList>
         <li>
-          SKU: {id},
+          SKU: {id}
         </li>
         <li>
-          release date: {introducedAt},
+          release date: {introducedAt}
         </li>
+        <li>
           name: {name}
-        <li>
-        </li>
-          description: {description},
-        <li>
-          <a href={photoFileName} target="_blank">photoFileName</a>,
-        </li>        
-        <li>
-          ${price},
         </li>
         <li>
-          rating: {rating},
+          description: {description}
         </li>
         <li>
-          qty available: {stock},
+          <a href={photoFileName} target="_blank" rel="noopener noreferrer">Image</a>
+        </li>
+        <li>
+          ${price}
+        </li>
+        <li>
+          rating: {rating}
+        </li>
+        <li>
+          qty available: {stock}
         </li>
         <li>
           categories: {type}
         </li>
-      </ul>
+      </DetailsList>
     </ProductDetails>
   );
 };
