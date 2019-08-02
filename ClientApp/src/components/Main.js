@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
 import { Products } from './Products';
@@ -14,7 +13,7 @@ export const Main = () => {
 
   return (
       <Main className="main">
-          <SelectedProduct />
+          <SelectedProduct/>
           <Products />
       </Main>
   )

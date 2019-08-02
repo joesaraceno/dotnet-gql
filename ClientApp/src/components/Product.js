@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
 import styled from 'styled-components';
-
-import useGlobalHook from 'use-global-hook';
-
-const initialState = {
-  selectedItem: 0,
-}
-
-const actions = {
-  selectItem: (store, itemId) => {
-    store.setState({ selectedItem: itemId });
-  }
-}
-
-const useGlobal = useGlobalHook(React, initialState, actions);
+import { useGlobalState } from '../state/state';
 
 export const Product = (props) => {
-  const [ globalState, globalActions ] = useGlobal();
-  const selected = globalState.selectedItem == props.id;
+  const [ selectedItem, setSelectedItem ] = useGlobalState('selectedItem');
+  const selected = selectedItem == props.id;
+
 
   const ProductItem = styled.li`
     margin-top: 5px;
@@ -35,7 +22,7 @@ export const Product = (props) => {
   `;
 
   return (
-    <ProductItem onClick={() => globalActions.selectItem(props.id) }>
+    <ProductItem onClick={() => setSelectedItem(props.id) }>
       <p>
         {props.name}: {props.description}
       </p>
