@@ -6,12 +6,12 @@ namespace CarvedRock.Api.GraphQL
 {
     public class CarvedRockQuery: ObjectGraphType
     {
-        public CarvedRockQuery(ProductRepository productRepository)
+        public CarvedRockQuery(ProductRepository _productRepository)
         {
             // even List is a special graphtype
             Field<ListGraphType<ProductType>>(
                 "products",  // give the field a name
-                resolve: context => productRepository.GetAll() // define the behavior of this resolver
+                resolve: context => _productRepository.GetAll() // define the behavior of this resolver
                 // returns a task that we don't have to await (graphql handles the await)
             );
             Field<ProductType>(
@@ -20,7 +20,7 @@ namespace CarvedRock.Api.GraphQL
                     {Name = "id"}),
                 resolve: context => {
                     var id = context.GetArgument<int>("id");
-                    return productRepository.GetSingle(id);
+                    return _productRepository.GetSingle(id);
                 }
             );
         }
