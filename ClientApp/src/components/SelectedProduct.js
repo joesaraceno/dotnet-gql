@@ -15,8 +15,7 @@ export const SelectedProduct = () => {
 
   return (
     <SelectedProductWrapper className="selected-product-wrapper">
-        <p>Selected Product:</p>
-        <ProductDetails id={selectedItem}></ProductDetails>
+      <ProductDetails id={selectedItem}></ProductDetails>
     </SelectedProductWrapper>
   );
 

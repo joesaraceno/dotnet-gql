@@ -22,7 +22,7 @@ export const Product = (props) => {
   `;
 
   return (
-    <ProductItem onClick={() => setSelectedItem(props.id) }>
+    <ProductItem onClick={() => selected ? setSelectedItem(0) : setSelectedItem(props.id) }>
       <p>
         {props.name}: {props.description}
       </p>
