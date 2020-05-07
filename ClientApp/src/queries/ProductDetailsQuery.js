@@ -12,6 +12,11 @@ export const PRODUCT_DETAILS_QUERY = gql`
       rating
       introducedAt
       photoFileName
+      # reviews{
+      #   id,
+      #   review, 
+      #   title
+      # }
     }
   }
 `;

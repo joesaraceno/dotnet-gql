@@ -32,6 +32,7 @@ export const ProductDetails = (props) => {
     introducedAt,
     name,
     photoFileName,
+    reviews,
     price,
     rating,
     stock,
@@ -65,9 +66,6 @@ export const ProductDetails = (props) => {
         </li>
         <li>
           description: {description}
-        </li>
-        <li>
-          <a href={photoFileName} target="_blank" rel="noopener noreferrer">Image</a>
         </li>
         <li>
           ${price}
