@@ -10,6 +10,7 @@ namespace CarvedRock.Api.GraphQL
         {   
             // When the query type is passed in, this will act   
             Query = resolver.Resolve<CarvedRockQuery>();
+            Mutation = resolver.Resolve<CarvedRockMutation>();
         }
     }
 }
