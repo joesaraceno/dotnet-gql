@@ -21,7 +21,7 @@ export const ProductReviews = (props) => {
     
     return (
         <div className="reviews__container">
-            <div>
+            <div className="reviews__header">
                 Customer Reviews
             </div>
             <div>

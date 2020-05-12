@@ -47,9 +47,9 @@ export const ProductDetails = (props) => {
 
   const DetailsList = styled.ul`
     list-style-type: none;
+    padding-left: 0;
     li {
       padding: 10px;
-      padding-left:0;
     }
   `
   const productReviews = reviews != null ? <ProductReviews reviews={reviews} /> : null;
