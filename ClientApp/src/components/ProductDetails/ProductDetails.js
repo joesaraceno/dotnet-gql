@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {useQuery} from 'react-apollo-hooks';
 
-import { PRODUCT_DETAILS_QUERY } from '../queries/ProductDetailsQuery';
+import { PRODUCT_DETAILS_QUERY } from '../../queries/ProductDetailsQuery';
+import { ProductReviews } from '../ProductReviews/ProductReviews'
 
 export const ProductDetails = (props) => {
   
@@ -38,7 +39,6 @@ export const ProductDetails = (props) => {
     stock,
     type,
   } = data.product;
-
   const ProductDetails = styled.div`
     height: 100%;
     margin: 20px;
@@ -47,10 +47,12 @@ export const ProductDetails = (props) => {
 
   const DetailsList = styled.ul`
     list-style-type: none;
+    padding-left: 0;
     li {
       padding: 10px;
     }
   `
+  const productReviews = reviews != null ? <ProductReviews reviews={reviews} /> : null;
 
   return (
     <ProductDetails>
@@ -80,6 +82,7 @@ export const ProductDetails = (props) => {
           categories: {type}
         </li>
       </DetailsList>
+      {productReviews}
     </ProductDetails>
   );
 };

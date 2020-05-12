@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useGlobalState } from '../state/state';
+import { useGlobalState } from '../../state/state';
 
 export const Product = (props) => {
   const [ selectedItem, setSelectedItem ] = useGlobalState('selectedItem');
@@ -24,7 +24,7 @@ export const Product = (props) => {
   return (
     <ProductItem onClick={() => selected ? setSelectedItem(0) : setSelectedItem(props.id) }>
       <p>
-        {props.name}: {props.description}
+        {props.name}: {props.description} {"type here"}
       </p>
     </ProductItem>
   );
