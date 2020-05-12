@@ -13,10 +13,10 @@ export const PRODUCT_DETAILS_QUERY = gql`
       introducedAt
       photoFileName
       reviews{
-         id,
-         review, 
-         title
-       }
+        id,
+        review, 
+        title
+      }
     }
   }
 `;
