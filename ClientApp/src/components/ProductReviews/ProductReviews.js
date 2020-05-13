@@ -10,7 +10,9 @@ import { CreateReview } from "./CreateReview/CreateReview";
 
 export const ProductReviews = (props) => {
     let reviews;
-    
+    debugger;
+    const productId = props.productId;
+    debugger;
     if (props.reviews) {
         reviews = props.reviews.map((r) =>
             <ProductReview review={r} key={r.id} />
@@ -27,7 +29,7 @@ export const ProductReviews = (props) => {
             <div>
                 {reviews}
             </div>
-            <CreateReview />
+            <CreateReview productId={productId} />
         </div>
     )
 }

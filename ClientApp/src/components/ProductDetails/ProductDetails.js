@@ -52,8 +52,8 @@ export const ProductDetails = (props) => {
       padding: 10px;
     }
   `
-  const productReviews = reviews != null ? <ProductReviews reviews={reviews} /> : null;
-
+  const productReviews = reviews != null ? <ProductReviews productId={id} reviews={reviews} /> : null;
+  debugger;
   return (
     <ProductDetails>
       <DetailsList>
