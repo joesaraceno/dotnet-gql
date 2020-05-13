@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ADD_REVIEW_MUTATION } from "../../../mutations/CustomerReviewMutation";
-import { Button, TextArea, InputText } from "@healthwise-ui/core";
+import { Button, TextArea, InputText, BlockHeading } from "@healthwise-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 
 import "./CreateReview.scss";
@@ -10,32 +10,36 @@ export const CreateReview = (props) => {
   const [reviewDescription, setReviewDescription] = useState("");
   const [addReview, newReview] = useMutation(ADD_REVIEW_MUTATION);
 
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
     const input = {
       title: reviewTitle,
       review: reviewDescription,
       productId: props.productId,
     };
-    debugger;
     addReview({
       variables: { newReview: input },
     });
   };
 
   return (
-    <form className="review__container" onSubmit={onSubmit}>
-      <InputText
-        type="text"
-        placeholder="Title"
-        onChange={(event) => setReviewTitle(event.target.value)}
-      ></InputText>
-      <TextArea
-        placeholder="Please leave review here..."
-        onChange={(event) => setReviewDescription(event.target.value)}
-      />
-      <Button type="submit" value="submit">
-        Submit{" "}
-      </Button>
-    </form>
+    <div>
+      <BlockHeading>Have A Review?</BlockHeading>
+      <form className="review__container" onSubmit={(event) => onSubmit(event)}>
+        <InputText
+          label="Title"
+          type="text"
+          placeholder="Title"
+          onChange={(event) => setReviewTitle(event.target.value)}
+        ></InputText>
+        <TextArea
+          label="Leave a review ..."
+          onChange={(event) => setReviewDescription(event.target.value)}
+        />
+        <Button type="submit" value="submit">
+          Submit{" "}
+        </Button>
+      </form>
+    </div>
   );
 };

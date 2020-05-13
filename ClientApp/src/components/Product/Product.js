@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { useGlobalState } from '../../state/state';
+import { useGlobalState } from "../../state/state";
 
 export const Product = (props) => {
-  const [ selectedItem, setSelectedItem ] = useGlobalState('selectedItem');
+  const [selectedItem, setSelectedItem] = useGlobalState("selectedItem");
   const selected = selectedItem === props.id;
 
   const ProductItem = styled.li`
@@ -15,16 +15,20 @@ export const Product = (props) => {
     border-radius: ${selected ? "4px" : ""};
     box-shadow: 1px 1px 1px 1px #dddfff;
     cursor: pointer;
-    
+
     &:hover {
       color: red;
     }
   `;
 
   return (
-    <ProductItem onClick={() => selected ? setSelectedItem(0) : setSelectedItem(props.id) }>
+    <ProductItem
+      onClick={() =>
+        selected ? setSelectedItem(0) : setSelectedItem(props.id)
+      }
+    >
       <p>
-        {props.name}: {props.description} {"type here"}
+        {props.name}: {props.description}
       </p>
     </ProductItem>
   );

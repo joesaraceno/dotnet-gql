@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { Product } from "../Product/Product";
 import { PRODUCTS_QUERY } from "../../queries/ProductsQuery";
+import { LoadingIndicator } from "@healthwise-ui/core";
 
 import "./Products.scss";
 
@@ -11,7 +12,7 @@ export const Products = () => {
   const { data, error, loading } = useQuery(PRODUCTS_QUERY);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingIndicator />;
   }
 
   if (error) {

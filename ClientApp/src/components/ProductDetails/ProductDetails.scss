@@ -1,0 +1,28 @@
+.product-details__container {
+  height: 100%;
+  margin: 20px;
+}
+
+.product-details__main {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-details__list {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 0;
+
+  li {
+    padding: 10px;
+  }
+}
+
+.product__image {
+  width: 200px;
+}
+
+.product__name {
+  font-size: 18px;
+  font-weight: bold;
+}
