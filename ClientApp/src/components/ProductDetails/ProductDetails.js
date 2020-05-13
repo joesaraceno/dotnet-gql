@@ -1,33 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import {useQuery} from '@apollo/react-hooks';
+import React from "react";
+import styled from "styled-components";
+import { useQuery } from "@apollo/react-hooks";
 
-import { PRODUCT_DETAILS_QUERY } from '../../queries/ProductDetailsQuery';
-import { ProductReviews } from '../ProductReviews/ProductReviews'
+import { PRODUCT_DETAILS_QUERY } from "../../queries/ProductDetailsQuery";
+import { ProductReviews } from "../ProductReviews/ProductReviews";
 
 export const ProductDetails = (props) => {
-  
-  const { data, error, loading } = useQuery(PRODUCT_DETAILS_QUERY, { 
+  const { data, error, loading } = useQuery(PRODUCT_DETAILS_QUERY, {
     variables: {
-      id: props.id
-    }
+      id: props.id,
+    },
   });
 
-  if(loading) {
-    return <div>Loading...</div>
+  if (loading) {
+    return <div>Loading...</div>;
   }
-  
+
   if (error) {
-    return <div>Error...{error.message}</div>
+    return <div>Error...{error.message}</div>;
   }
 
-  if(!data || !data.product) {
-    return(
-      <div>Select A Product to view details</div>
-    )
+  if (!data || !data.product) {
+    return <div>Select A Product to view details</div>;
   }
 
-  const { 
+  const {
     description,
     id,
     introducedAt,
@@ -51,36 +48,22 @@ export const ProductDetails = (props) => {
     li {
       padding: 10px;
     }
-  `
-  const productReviews = reviews != null ? <ProductReviews productId={id} reviews={reviews} /> : null;
-  debugger;
+  `;
+  const productReviews =
+    reviews != null ? (
+      <ProductReviews productId={id} reviews={reviews} />
+    ) : null;
   return (
     <ProductDetails>
       <DetailsList>
-        <li>
-          SKU: {id}
-        </li>
-        <li>
-          release date: {introducedAt}
-        </li>
-        <li>
-          name: {name}
-        </li>
-        <li>
-          description: {description}
-        </li>
-        <li>
-          ${price}
-        </li>
-        <li>
-          rating: {rating}
-        </li>
-        <li>
-          qty available: {stock}
-        </li>
-        <li>
-          categories: {type}
-        </li>
+        <li>SKU: {id}</li>
+        <li>release date: {introducedAt}</li>
+        <li>name: {name}</li>
+        <li>description: {description}</li>
+        <li>${price}</li>
+        <li>rating: {rating}</li>
+        <li>qty available: {stock}</li>
+        <li>categories: {type}</li>
       </DetailsList>
       {productReviews}
     </ProductDetails>

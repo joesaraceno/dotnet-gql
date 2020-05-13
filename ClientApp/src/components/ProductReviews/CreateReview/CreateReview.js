@@ -16,7 +16,6 @@ export const CreateReview = (props) => {
       review: reviewDescription,
       productId: props.productId,
     };
-    debugger;
     addReview({
       variables: { newReview: input },
     });
