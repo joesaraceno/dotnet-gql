@@ -5,6 +5,7 @@ import "./ProductReviews.scss";
 
 import { ProductReview } from "../ProductReview/ProductReview";
 import { CreateReview } from "./CreateReview/CreateReview";
+import { BlockHeading } from "@healthwise-ui/core";
 
 export const ProductReviews = (props) => {
   let reviews;
@@ -17,7 +18,7 @@ export const ProductReviews = (props) => {
 
   return (
     <div className="reviews__container">
-      <div className="reviews__header">Customer Reviews</div>
+      <BlockHeading>Customer Reviews</BlockHeading>
       <div>{reviews}</div>
       <CreateReview productId={productId} />
     </div>
