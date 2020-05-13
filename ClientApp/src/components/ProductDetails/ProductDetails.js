@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useQuery} from 'react-apollo-hooks';
+import {useQuery} from '@apollo/react-hooks';
 
 import { PRODUCT_DETAILS_QUERY } from '../../queries/ProductDetailsQuery';
 import { ProductReviews } from '../ProductReviews/ProductReviews'

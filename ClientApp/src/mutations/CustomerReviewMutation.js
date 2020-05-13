@@ -1,11 +1,11 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
-export const ADD_COMMENT_MUTATION = gql`
-  mutation createMutation($review: reviewInput!) {
-      createReview(review: $review){
-        id,
-        title,
-        review
+export const ADD_REVIEW_MUTATION = gql`
+  mutation($newReview: reviewInput!) {
+    createReview(review: $newReview) {
+      id
+      title
+      review
     }
   }
 `;

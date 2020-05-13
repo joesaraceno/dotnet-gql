@@ -1,32 +1,41 @@
-import React, {useState} from 'react';
-import { ADD_COMMENT_MUTATION } from '../../../mutations/CustomerReviewMutation';
-import { Button, TextArea, InputText } from '@healthwise-ui/core';
-import {useMutation} from 'react-apollo-hooks';
+import React, { useState } from "react";
+import { ADD_REVIEW_MUTATION } from "../../../mutations/CustomerReviewMutation";
+import { Button, TextArea, InputText } from "@healthwise-ui/core";
+import { useMutation } from "@apollo/react-hooks";
 
-import './CreateReview.scss'
-
+import "./CreateReview.scss";
 
 export const CreateReview = (props) => {
-    const productId = props.productId;
-    const mutationObject = {
-        title: 'Hello',
-        review: 'review',
-        productId: 1
-    }
-    const [reviewTitle, setReviewTitle] = useState("");
-    const [reviewDescription, setReviewDescription] = useState("");
-    const [validReview, setValidReview] = useState(false);
-    const [addReview, {loading}] = useMutation(ADD_COMMENT_MUTATION, {
-        variables: {
-            review: "lets try this"
-        }
+  const [reviewTitle, setReviewTitle] = useState("");
+  const [reviewDescription, setReviewDescription] = useState("");
+  const [addReview, newReview] = useMutation(ADD_REVIEW_MUTATION);
+
+  const onSubmit = () => {
+    const input = {
+      title: reviewTitle,
+      review: reviewDescription,
+      productId: props.productId,
+    };
+    debugger;
+    addReview({
+      variables: { newReview: input },
     });
-    
-    return (
-        <form className="review__container" onSubmit={addReview}>
-            <InputText type='text' placeholder="Title"></InputText>
-            <TextArea placeholder='Please leave review here...' />
-            <Button type='submit' value='submit'/>
-        </form>
-    )
-}
+  };
+
+  return (
+    <form className="review__container" onSubmit={onSubmit}>
+      <InputText
+        type="text"
+        placeholder="Title"
+        onChange={(event) => setReviewTitle(event.target.value)}
+      ></InputText>
+      <TextArea
+        placeholder="Please leave review here..."
+        onChange={(event) => setReviewDescription(event.target.value)}
+      />
+      <Button type="submit" value="submit">
+        Submit{" "}
+      </Button>
+    </form>
+  );
+};
