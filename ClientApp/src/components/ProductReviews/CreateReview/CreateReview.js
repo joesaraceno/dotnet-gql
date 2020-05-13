@@ -29,7 +29,6 @@ export const CreateReview = (props) => {
         <InputText
           label="Title"
           type="text"
-          placeholder="Title"
           onChange={(event) => setReviewTitle(event.target.value)}
         ></InputText>
         <TextArea

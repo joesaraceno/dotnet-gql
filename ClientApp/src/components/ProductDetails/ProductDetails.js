@@ -12,7 +12,6 @@ export const ProductDetails = (props) => {
       id: props.id,
     },
   });
-  const [product, setProduct] = useState(data.product);
 
   if (error) {
     return <div>Error...{error.message}</div>;
@@ -33,21 +32,11 @@ export const ProductDetails = (props) => {
     rating,
     stock,
     type,
-  } = product;
+  } = data.product;
 
   const images = require.context("../../images", true);
   let imageSource = images("./" + photoFileName);
 
-  const DetailsList = styled.ul`
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    display: inline-block;
-    padding-left: 0;
-    li {
-      padding: 10px;
-    }
-  `;
   const productReviews =
     reviews != null ? (
       <ProductReviews productId={id} reviews={reviews} />
